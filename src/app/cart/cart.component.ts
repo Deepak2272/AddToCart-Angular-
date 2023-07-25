@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { Product } from '../products';
 
@@ -8,13 +9,19 @@ import { Product } from '../products';
 })
 export class CartComponent implements OnInit{
   items!: Product[];
-  prices: any;
-  constructor(private cartService: CartService){}
+  checkoutForm!: FormGroup;
+  constructor(private cartService: CartService){
+    this.checkoutForm = new FormGroup({
+      name: new FormControl(''),
+      address: new FormControl('')
+    })
+  }
 
   ngOnInit(){
     this.items = this.cartService.getItems();
-    this.cartService.getPrices().subscribe((res)=>{
-      this.prices = res;
-    })
+  }
+
+  onSubmit(){
+    console.log(this.checkoutForm.value)
   }
 }

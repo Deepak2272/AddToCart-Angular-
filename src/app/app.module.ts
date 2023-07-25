@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { AppRoutingModule } from './app.routing.module';
 import { ProductAlertComponent } from './product-alert/product-alert.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { ShippingComponent } from './shipping/shipping.component';
+
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, CommonModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   declarations: [
     AppComponent,
     TopBarComponent,
@@ -20,6 +24,7 @@ import { CartComponent } from './cart/cart.component';
     ProductAlertComponent,
     ProductDetailsComponent,
     CartComponent,
+    ShippingComponent
   ],
   bootstrap: [AppComponent],
 })
