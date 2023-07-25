@@ -8,9 +8,13 @@ import { Product } from '../products';
 })
 export class CartComponent implements OnInit{
   items!: Product[];
+  prices: any;
   constructor(private cartService: CartService){}
 
   ngOnInit(){
     this.items = this.cartService.getItems();
+    this.cartService.getPrices().subscribe((res)=>{
+      this.prices = res;
+    })
   }
 }
